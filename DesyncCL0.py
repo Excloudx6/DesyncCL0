@@ -6,6 +6,7 @@ __version__ = "0.0.2"
 import argparse
 import socket
 import ssl
+import sys
 from http.client import HTTPResponse
 from io import BytesIO
 from urllib.parse import urlparse
@@ -233,7 +234,12 @@ def connect(URL, timeout):
         port = 80 if URL.port is None else URL.port
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(timeout)
-        sock.connect((hostname, port))
+        try:
+            sock.connect((hostname, port))
+        except socket.gaierror as e:
+            print(f"Failed to connect to {hostname}:{port}. Error: {e}")
+            sys.exit(1)
+
         return sock
 
 
