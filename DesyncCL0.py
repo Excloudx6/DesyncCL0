@@ -6,7 +6,6 @@ __version__ = "0.0.2"
 import argparse
 import socket
 import ssl
-import sys
 from http.client import HTTPResponse
 from io import BytesIO
 from urllib.parse import urlparse
@@ -250,9 +249,9 @@ def check_url(url):
 
 
 def Desync():
-    if sys.version_info < (3, 9):
-        print("Error: requires Python 3.9.")
-        sys.exit(1)
+    # if sys.version_info < (3, 9):
+    #     print("Error: requires Python 3.9.")
+    #     sys.exit(1)
 
     # banner = "ICAgIF9fX18gICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fX19fX19fICAgIF9fX18gCiAgIC8gX18gXF9fXyAgX19fX19fXyAgX19fX19fICBfX19fXy8gX19fXy8gLyAgIC8gX18gXAogIC8gLyAvIC8gXyBcLyBfX18vIC8gLyAvIF9fIFwvIF9fXy8gLyAgIC8gLyAgIC8gLyAvIC8KIC8gL18vIC8gIF9fKF9fICApIC9fLyAvIC8gLyAvIC9fXy8gL19fXy8gL19fXy8gL18vIC8gCi9fX19fXy9cX19fL19fX18vXF9fLCAvXy8gL18vXF9fXy9cX19fXy9fX19fXy9cX19fXy8gIAogICAgICAgICAgICAgICAgL19fX18vICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICA="
     # print(base64.b64decode(banner).decode("UTF-8"))
